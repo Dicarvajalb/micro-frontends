@@ -1,27 +1,14 @@
-import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
 
-import App from './app';
+import { App } from './app';
 
 describe('App', () => {
-  it('should render successfully', () => {
-    const { baseElement } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>,
-    );
-    expect(baseElement).toBeTruthy();
-  });
+  it('renders the root-config shell', () => {
+    render(<App />);
 
-  it('should have a greeting as the title', () => {
-    const { getAllByText } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>,
-    );
-    expect(
-      getAllByText(new RegExp('Welcome @my-workspace/fe-learning', 'gi'))
-        .length > 0,
-    ).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Fe Learning como contenedor de microfrontends' })).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Cotizaciones /cotizaciones' })).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Facturas de venta /factura-de-venta' })).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Notas de crédito /notas-de-credito' })).toBeTruthy();
   });
 });

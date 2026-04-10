@@ -1,0 +1,38 @@
+{
+  "name": "fe-learning",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/fe-learning",
+  "sourceRoot": "apps/fe-learning/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "apps/fe-learning/dist",
+        "configFile": "apps/fe-learning/vite.config.mts",
+        "tsConfig": "apps/fe-learning/tsconfig.app.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "fe-learning:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{projectRoot}/coverage"],
+      "options": {
+        "configFile": "apps/fe-learning/vite.config.mts",
+        "reportsDirectory": "apps/fe-learning/test-output/vitest/coverage",
+        "watch": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}

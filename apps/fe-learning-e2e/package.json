@@ -4,7 +4,7 @@
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "@my-workspace/fe-learning"
+      "fe-learning"
     ]
   }
 }

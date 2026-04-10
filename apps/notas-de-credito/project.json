@@ -1,0 +1,38 @@
+{
+  "name": "notas-de-credito",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/notas-de-credito",
+  "sourceRoot": "apps/notas-de-credito/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "apps/notas-de-credito/dist",
+        "configFile": "apps/notas-de-credito/vite.config.mts",
+        "tsConfig": "apps/notas-de-credito/tsconfig.lib.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "notas-de-credito:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{projectRoot}/coverage"],
+      "options": {
+        "configFile": "apps/notas-de-credito/vite.config.mts",
+        "reportsDirectory": "apps/notas-de-credito/test-output/vitest/coverage",
+        "watch": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}

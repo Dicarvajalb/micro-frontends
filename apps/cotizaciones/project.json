@@ -1,0 +1,38 @@
+{
+  "name": "cotizaciones",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/cotizaciones",
+  "sourceRoot": "apps/cotizaciones/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "apps/cotizaciones/dist",
+        "configFile": "apps/cotizaciones/vite.config.mts",
+        "tsConfig": "apps/cotizaciones/tsconfig.lib.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "cotizaciones:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{projectRoot}/coverage"],
+      "options": {
+        "configFile": "apps/cotizaciones/vite.config.mts",
+        "reportsDirectory": "apps/cotizaciones/test-output/vitest/coverage",
+        "watch": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}

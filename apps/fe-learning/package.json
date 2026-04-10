@@ -1,5 +1,8 @@
 {
   "name": "@my-workspace/fe-learning",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "vite"
+  }
 }

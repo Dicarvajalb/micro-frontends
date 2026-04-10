@@ -1,0 +1,38 @@
+{
+  "name": "factura-de-venta",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/factura-de-venta",
+  "sourceRoot": "apps/factura-de-venta/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "apps/factura-de-venta/dist",
+        "configFile": "apps/factura-de-venta/vite.config.mts",
+        "tsConfig": "apps/factura-de-venta/tsconfig.lib.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "factura-de-venta:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{projectRoot}/coverage"],
+      "options": {
+        "configFile": "apps/factura-de-venta/vite.config.mts",
+        "reportsDirectory": "apps/factura-de-venta/test-output/vitest/coverage",
+        "watch": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}

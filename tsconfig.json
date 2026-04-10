@@ -8,6 +8,18 @@
     },
     {
       "path": "./apps/fe-learning"
+    },
+    {
+      "path": "./apps/factura-de-venta"
+    },
+    {
+      "path": "./apps/notas-de-credito"
+    },
+    {
+      "path": "./apps/cotizaciones"
+    },
+    {
+      "path": "./packages/atoms"
     }
   ]
 }

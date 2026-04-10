@@ -1,8 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+test('renders the shell and lets the cotizaciones microfrontend mount', async ({ page }) => {
   await page.goto('/');
 
-  // Expect h1 to contain a substring.
-  expect(await page.locator('h1').innerText()).toContain('Welcome');
+  await expect(page.getByRole('heading', { name: 'Fe Learning como contenedor de microfrontends' })).toBeVisible();
+
+  await page.locator('a[href="/cotizaciones"]').click();
+
+  await expect(page.getByRole('heading', { name: 'Cotizaciones' })).toBeVisible();
 });

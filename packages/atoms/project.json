@@ -1,0 +1,32 @@
+{
+  "name": "atoms",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "packages/atoms",
+  "sourceRoot": "packages/atoms/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/atoms/dist",
+        "configFile": "packages/atoms/vite.config.mts",
+        "tsConfig": "packages/atoms/tsconfig.lib.json"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{projectRoot}/coverage"],
+      "options": {
+        "configFile": "packages/atoms/vite.config.mts",
+        "reportsDirectory": "packages/atoms/test-output/vitest/coverage",
+        "watch": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}
