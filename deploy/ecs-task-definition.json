@@ -1,31 +1,63 @@
 {
-  "family": "fe-learning",
-  "networkMode": "awsvpc",
-  "requiresCompatibilities": ["FARGATE"],
-  "cpu": "256",
-  "memory": "512",
-  "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::123456789012:role/ecsTaskRole",
+  "taskDefinitionArn": "arn:aws:ecs:sa-east-1:376916383822:task-definition/micro-frontend-dev:1",
   "containerDefinitions": [
     {
       "name": "fe-learning",
-      "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/fe-learning:latest",
-      "essential": true,
+      "image": "376916383822.dkr.ecr.sa-east-1.amazonaws.com/micro-frontends",
+      "cpu": 0,
       "portMappings": [
         {
+          "name": "fe-learning-80-tcp",
           "containerPort": 80,
           "hostPort": 80,
           "protocol": "tcp"
         }
       ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/fe-learning",
-          "awslogs-region": "us-east-1",
-          "awslogs-stream-prefix": "ecs"
-        }
-      }
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "systemControls": []
     }
-  ]
+  ],
+  "family": "micro-frontend-dev",
+  "executionRoleArn": "arn:aws:iam::376916383822:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "revision": 1,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+    "EC2",
+    "MANAGED_INSTANCES",
+    "FARGATE"
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "2048",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "registeredAt": "2026-04-11T21:55:23.981Z",
+  "registeredBy": "arn:aws:iam::376916383822:root",
+  "enableFaultInjection": false,
+  "tags": []
 }
