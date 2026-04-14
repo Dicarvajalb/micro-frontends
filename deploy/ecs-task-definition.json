@@ -14,21 +14,11 @@
         }
       ],
       "essential": true,
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/micro-frontend-dev",
-          "awslogs-region": "sa-east-1",
-          "awslogs-stream-prefix": "ecs",
-          "awslogs-create-group": "true"
-        }
-      },
       "environment": [],
       "environmentFiles": [],
       "mountPoints": [],
       "volumesFrom": [],
       "systemControls": []
-      
     }
   ],
   "family": "micro-frontend-dev",
